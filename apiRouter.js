@@ -3,6 +3,6 @@ var apiCtrl = require('./api/apiController');
 
 var router = express.Router();
 
-router.route('/stats').get(apiCtrl.getStats);
+router.route('/').get(apiCtrl.getStats);
 
 module.exports = router;
