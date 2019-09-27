@@ -18,7 +18,7 @@ export default {
   methods: {
     async getLanguage() {
       try {
-        const res = await axios.post("http://localhost:5000/graphql", {
+        const res = await axios.post("/graphql", {
           query: "{ language }"
         });
         this.example1 = res.data.data.language;

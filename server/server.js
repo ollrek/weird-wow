@@ -1,14 +1,18 @@
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
 const serveStatic = require('serve-static');
-const dataSources = require('./dataSources');
+const cors = require('cors');
 
 // GraphQL Stuff
 const schema = require('./schema');
+const dataSources = require('./dataSources');
 
 // Serve
 app = express();
+app.use(cors());
+
 app.use(serveStatic(__dirname + "/../dist")); // Serve static part
+
 app.use(
     '/graphql',
     graphqlHTTP(() => ({
@@ -18,6 +22,6 @@ app.use(
     })),
 ); // Serve GraphQL part
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 80;
 app.listen(port);
 console.log('server started ' + port);
