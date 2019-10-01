@@ -10,7 +10,7 @@ const getStatsForCharacter = async (character, n ) => {
             .then(response => {
                 blizzard.defaults.token = response.data.access_token
             });
-        const item = await blizzard.wow.character(['statistics'], { origin: character.origin, realm: character.realm, name: character.name });
+        const item = await blizzard.wow.character(['statistics'], character);
         var stats = item.data.statistics.subCategories;
     } catch (err) {
         throw new Error('Error fetching data from Blizzard API.');

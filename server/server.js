@@ -1,5 +1,6 @@
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
+const history = require('connect-history-api-fallback');
 const serveStatic = require('serve-static');
 const cors = require('cors');
 
@@ -9,6 +10,13 @@ const dataSources = require('./dataSources');
 
 // Serve
 app = express();
+app.use(history({
+    // verbose:true,
+    rewrites: [
+        { from: /\/graphql/, to: '/graphql'}
+      ]
+}))
+
 app.use(cors());
 
 app.use(serveStatic(__dirname + "/../dist")); // Serve static part

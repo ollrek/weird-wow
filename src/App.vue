@@ -1,42 +1,16 @@
 <template>
-  <div id="app">
-    <h3>Example 1</h3>
-    <div>Data: {{ example1 }}</div>
-    <button @click="getLanguage">Get Language</button>
-    <hr />
+  <div>
+    <header-custom></header-custom>
+    <router-view />
   </div>
 </template>
 <script>
-import axios from "axios";
+import HeaderItem from "@/components/HeaderItem";
+
 export default {
   name: "app",
-  data() {
-    return {
-      example1: ""
-    };
-  },
-  methods: {
-    async getLanguage() {
-      try {
-        const res = await axios.post("/graphql", {
-          query: "{ language }"
-        });
-        this.example1 = res.data.data.language;
-      } catch (e) {
-        console.log("err", e);
-      }
-    }
+  components: {
+    "header-custom": HeaderItem
   }
 };
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
