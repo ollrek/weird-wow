@@ -3,8 +3,8 @@ const resolvers = require('./resolver');
 
 const typeDefs = `
 type Query {
-  language: String
-  getRandomStats(character: CharacterInput!, number: Int): [Stat]
+  getRandomStats(character: CharacterInput!, number: Int): [Stat],
+  tops: [Top]
 }
 
 type Character {
@@ -19,10 +19,16 @@ input CharacterInput {
   origin: String!
 }
 
+type Top {
+  stat: Stat!
+  character: Character!
+}
+
 type Stat {
   name: String!
   quantity: Float!
   highest: String
+  isTop: Boolean!
 }
 `
 module.exports = makeExecutableSchema({

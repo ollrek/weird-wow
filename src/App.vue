@@ -5,12 +5,12 @@
   </div>
 </template>
 <script>
-import HeaderItem from "@/components/HeaderItem";
+import HeaderItem from '@/components/HeaderItem.vue';
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
-    "header-custom": HeaderItem
-  }
+    'header-custom': HeaderItem,
+  },
 };
 </script>

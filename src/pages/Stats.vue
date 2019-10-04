@@ -22,20 +22,20 @@
   </div>
 </template>
 <script>
-import axios from "axios";
-import CharacterInputItem from "../components/CharacterInputItem";
-import StatItem from "../components/StatItem";
+import axios from 'axios';
+import CharacterInputItem from '../components/CharacterInputItem.vue';
+import StatItem from '../components/StatItem.vue';
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
-    "character-input": CharacterInputItem,
-    "stat-item": StatItem
+    'character-input': CharacterInputItem,
+    'stat-item': StatItem,
   },
   data() {
     return {
       data: {},
-      appIsLoading: false
+      appIsLoading: false,
     };
   },
   methods: {
@@ -43,26 +43,26 @@ export default {
       this.appIsLoading = true;
       this.data = {};
       try {
-        const res = await axios.post("/graphql", {
+        const res = await axios.post('/graphql', {
           query: `query GetRandomStats($character : CharacterInput!){ 
             getRandomStats(character: $character) {
           name,
           quantity,
-          highest
+          highest,
+          isTop
         }
         }
       `,
           variables: {
-            character: e
-          }
+            character: e,
+          },
         });
         this.data = res.data;
-      } catch (e) {
-        console.log("err", e);
-        this.data.errors.message = "Error fetching data from Blizzard API.";
+      } catch {
+        this.data.errors.message = 'Error fetching data from Blizzard API.';
       }
       this.appIsLoading = false;
-    }
-  }
+    },
+  },
 };
 </script>

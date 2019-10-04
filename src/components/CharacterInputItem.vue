@@ -38,21 +38,21 @@
 
 <script>
 export default {
-  name: "CharacterInputItem",
+  name: 'CharacterInputItem',
   data() {
     return {
       character: {
-        origin: "eu",
+        origin: 'eu',
         // realm: "",
         // name: ""
-      }
+      },
     };
   },
   methods: {
-    submit: function() {
-      this.$emit("submit", this.character);
-    }
-  }
+    submit() {
+      this.$emit('submit', this.character);
+    },
+  },
 };
 </script>
 
