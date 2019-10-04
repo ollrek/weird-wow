@@ -6,9 +6,9 @@
     <span class="column is-size-3 is-narrow">
       <strong>{{stat.quantity}}</strong>
     </span>
-    <span class="column is-size-4 is-narrow">{{stat.name}}</span>
+    <span class="column is-size-4 is-size-6-mobile is-narrow">{{stat.name}}</span>
     <!-- eslint-disable-next-line -->
-    <span v-if="stat && stat.highest" class="column is-small is-italic is-narrow">{{stat.highest}}</span>
+    <span v-if="stat && stat.highest" class="column is-small is-italic is-narrow is-multiline">{{stat.highest}}</span>
   </div>
 </template>
 

@@ -17,15 +17,25 @@
       </b-navbar-item>
     </template>
     <template slot="start">
-      <b-navbar-item tag="router-link" :to="{ path: '/tops' }">TOPS</b-navbar-item>
-      <b-navbar-item tag="router-link" :to="{ path: '/changelog' }">Changelog</b-navbar-item>
+      <div class="start-column columns container is-mobile">
+        <b-navbar-item
+          class="column has-text-centered"
+          tag="router-link"
+          :to="{ path: '/tops' }"
+        >TOPS</b-navbar-item>
+        <b-navbar-item
+          class="column has-text-centered"
+          tag="router-link"
+          :to="{ path: '/changelog' }"
+        >Changelog</b-navbar-item>
+      </div>
     </template>
   </b-navbar>
 </template>
 
 <script>
 export default {
-  name: 'HeaderItem',
+  name: "HeaderItem"
 };
 </script>
 
@@ -43,5 +53,9 @@ nav >>> .navbar-start {
 
 nav {
   display: block;
+}
+
+.start-column {
+  margin: auto;
 }
 </style>
