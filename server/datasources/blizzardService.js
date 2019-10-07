@@ -22,7 +22,7 @@ const getStatsForCharacter = async (character, n ) => {
 
 // REDUCE : This functions flattens one input array, nested with any numbers of array or objects only keeping real statistics
 function flattenBlizzStats(r, a) {
-    if (a.hasOwnProperty("quantity")) {
+    if (a.hasOwnProperty("quantity") && a.quantity > 0) {
         r.push(a);
     }
     else if (a.id == 14807) { // Hack for D&R
