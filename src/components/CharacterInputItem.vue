@@ -30,7 +30,7 @@
         />
       </p>
       <div class="control">
-        <button class="button" type="submit">Give some !</button>
+        <button class="button" type="submit">Give stats !</button>
       </div>
     </div>
   </form>
