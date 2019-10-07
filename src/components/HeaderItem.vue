@@ -35,7 +35,7 @@
 
 <script>
 export default {
-  name: "HeaderItem"
+  name: 'HeaderItem',
 };
 </script>
 
