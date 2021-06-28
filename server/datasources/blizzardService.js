@@ -1,19 +1,16 @@
-const blizzard = require('blizzard.js').initialize({
-    key: "97e5dd6e17164506a275eaea54eeaf88",
-    secret: "2ZYjzdA3GxDt26MRp2wcrTK4gkNavtHc",
-});
 const { getRandoms } = require('../tools');
 
 const getStatsForCharacter = async (character, n ) => {
     try {
-        await blizzard.getApplicationToken()
-            .then(response => {
-                blizzard.defaults.token = response.data.access_token
-            });
-        const item = await blizzard.wow.character(['statistics'], character);
-        var stats = item.data.statistics.subCategories;
+        const blizzard = await require('blizzard.js').wow.createInstance({
+            key: "97e5dd6e17164506a275eaea54eeaf88",
+            secret: "2ZYjzdA3GxDt26MRp2wcrTK4gkNavtHc",
+        });
+
+        const item = await blizzard.characterAchievements({name:"rokk", realm:"dalaran", origin:"eu", stats:true});
+        var stats = item.data.categories;
     } catch (err) {
-        throw new Error('Error fetching data from Blizzard API.');
+        throw new Error('Error fetching data from Blizzard API : ' + err);
     }
 
     return getRandoms(stats.reduce(flattenBlizzStats, []), n || 5);

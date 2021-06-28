@@ -1,6 +1,8 @@
 <template>
   <div class="container">
     <section class="section">
+      <div class="title is-5">v0.2.3</div>
+      <div class="subtitle is-6">Updated for new Blizzard endpoints.</div>
       <div class="title is-5">v0.2.2</div>
       <div class="subtitle is-6">Tops should now be updated properly.</div>
       <div class="title is-5">v0.2.1</div>

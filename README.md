@@ -1,4 +1,8 @@
 # litte-race
+Small site with fun stats about your World of Warcraft character !
+v0.2.3
+
+Stack : Vue.js - GraphQL - MongoDB
 
 ## Project setup
 ```

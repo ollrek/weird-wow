@@ -37,6 +37,6 @@ app.use(
     })),
 ); // Serve GraphQL part
 
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 3030;
 app.listen(port);
 console.log('server started ' + port);
